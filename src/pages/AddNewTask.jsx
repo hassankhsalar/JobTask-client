@@ -1,6 +1,8 @@
 import { useState } from "react";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import useAuth from "../hooks/useAuth";
+import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const AddNewTask = () => {
   const { user } = useAuth();
@@ -56,7 +58,9 @@ const AddNewTask = () => {
 
         {/* Description */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Description</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Description
+          </label>
           <textarea
             name="description"
             value={taskData.description}
@@ -68,7 +72,9 @@ const AddNewTask = () => {
 
         {/* Category */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Category</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Category
+          </label>
           <select
             name="category"
             value={taskData.category}
@@ -89,6 +95,11 @@ const AddNewTask = () => {
           Add Task
         </button>
       </form>
+      <Link to='/'>
+        <button className="btn mt-2">
+          <FaArrowLeft></FaArrowLeft> Go back{" "}
+        </button>
+      </Link>
     </div>
   );
 };
