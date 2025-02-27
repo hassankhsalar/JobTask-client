@@ -41,7 +41,7 @@ const AddNewTask = () => {
 
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Add New Task</h2>
+      <h2 className="text-xl text-accent font-semibold mb-4">Add New Task</h2>
       <form onSubmit={handleSubmit}>
         {/* Title */}
         <div className="mb-4">
@@ -90,13 +90,13 @@ const AddNewTask = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-300"
+          className="w-full bg-accent text-white p-2 rounded-lg hover:scale-105 transition duration-300"
         >
           Add Task
         </button>
       </form>
       <Link to='/'>
-        <button className="btn mt-2">
+        <button className="btn bg-secondary text-white  mt-2">
           <FaArrowLeft></FaArrowLeft> Go back{" "}
         </button>
       </Link>

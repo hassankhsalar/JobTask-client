@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+
+  
   const { user, logOut } = useAuth();
   console.log(user);
   
@@ -14,10 +24,16 @@ const Navbar = () => {
 
 
   return (
-    <div className="bg-primary">
+    <div className="bg-primary rounded-lg">
       <div className="navbar">
         <div className="navbar-start">
           <a className="btn btn-ghost text-white text-xl">JobTask</a>
+          <button
+      className="btn btn-outline"
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+    >
+      {theme === "light" ? "🌙" : "☀️"}
+    </button>
         </div>
 
         <div className="navbar-end gap-2 text-white">
