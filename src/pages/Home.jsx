@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { io } from "socket.io-client";
 import { FaTrash } from "react-icons/fa";
 
-//const socket = io("https://task-manager-server-c7xi.onrender.com/");
-const socket = io("http://localhost:5000/");
+const socket = io("https://task-manager-server-c7xi.onrender.com/");
+//const socket = io("http://localhost:5000/");
 
 const Home = () => {
   const { user } = useAuth();
@@ -105,7 +105,7 @@ const Home = () => {
                                 {...provided.dragHandleProps}
                                 className="p-2 mb-2 bg-gray-200 rounded flex flex-col md:flex-row justify-between items-center"
                               >
-                                <div className="flex flex-col">
+                                <div className="flex flex-col justify-center items-center mx-auto">
                                   <h2 className="text-md flex justify-evenly">
                                     <span className="font-bold">Name:</span> {task.title}
                                   </h2>
@@ -120,12 +120,14 @@ const Home = () => {
                                   <p className="text-sm font-thin">
                                     <span className="font-bold">TimeStamp:</span> {new Date(task.createdAt).toLocaleString()}
                                   </p>
+                                  <div className="flex justify-center items-center p-2 bg-white rounded-xl">
                                   <button
                                     onClick={() => handleDeleteTask(task._id)}
                                     className="text-red-500"
                                   >
                                     <FaTrash />
                                   </button>
+                                  </div>
                                 </div>
                               </div>
                             )}
